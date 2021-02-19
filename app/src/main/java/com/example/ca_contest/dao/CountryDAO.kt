@@ -11,6 +11,6 @@ abstract class CountryDAO {
     abstract fun insert(vararg country: Country)
     @Update
     abstract fun update(vararg country: Country)
-    @Delete
-    abstract fun delete(vararg country: Country)
+    @Query("DELETE FROM country WHERE countryId = :id")
+    abstract fun delete(id: Long)
 }

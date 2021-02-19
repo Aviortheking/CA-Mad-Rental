@@ -8,31 +8,32 @@
     android:gravity = "center"
     tools:context=".CalendarActivity">
 
-    <include layout="@layout/toolbar"/>
+    <include
+        android:id="@+id/include2"
+        layout="@layout/toolbar" />
 
 
     <DatePicker
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:calendarTextColor="@color/purple_200"
         android:datePickerMode="calendar"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:calendarTextColor="@color/purple_200">
-    </DatePicker>
+        app:layout_constraintTop_toBottomOf="@+id/include2"></DatePicker>
 
     <Button
         android:id="@+id/add_date"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:background="@color/purple_200"
-        android:onClick="addDate"
+        android:background="@color/validation"
         android:text="Valider"
         android:textColor="@android:color/white"
+        app:backgroundTint="@color/validation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

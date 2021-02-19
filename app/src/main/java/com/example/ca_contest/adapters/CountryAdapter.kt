@@ -69,6 +69,7 @@ class CountryAdapter(list: ArrayList<Country>) : RecyclerView.Adapter<CountryAda
                     .putExtra("name", list[adapterPosition].name)
                     .putExtra("capital", list[adapterPosition].capital)
                     .putExtra("region", list[adapterPosition].region)
+                    .putExtra("code", list[adapterPosition].alpha2Code)
                 )
             }
         }

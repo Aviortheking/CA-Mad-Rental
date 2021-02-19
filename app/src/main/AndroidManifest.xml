@@ -11,13 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CA_Contest"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CalendarActivity"></activity>
+        <activity android:name=".CalendarActivity"
+            android:theme="@style/Theme.CA_Contest.NoActionBar"
+            />
         <activity
             android:name=".CountrySelectorActivity"
             android:label="@string/title_activity_country_selector"
             android:theme="@style/Theme.CA_Contest.NoActionBar" />
-        <activity android:name=".CountrySelectorActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:theme="@style/Theme.CA_Contest.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
