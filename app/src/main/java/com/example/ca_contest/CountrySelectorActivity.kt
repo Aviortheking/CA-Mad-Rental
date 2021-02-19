@@ -5,11 +5,13 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,8 +23,11 @@ import retrofit2.Callback
 import retrofit2.Response
 import kotlin.collections.ArrayList
 
-
 class CountrySelectorActivity : AppCompatActivity() {
+
+    companion object {
+        const val PROGRESS_BAR_TITLE = "Récupération des pays..."
+    }
 
     private var data: ArrayList<Country> = ArrayList()
 
@@ -33,7 +38,7 @@ class CountrySelectorActivity : AppCompatActivity() {
 
         // Progress Bar
         val progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("Récupération des pays...")
+        progressDialog.setTitle(PROGRESS_BAR_TITLE)
         progressDialog.setCancelable(false)
         progressDialog.show()
 
@@ -70,5 +75,4 @@ class CountrySelectorActivity : AppCompatActivity() {
             recycler.adapter?.notifyDataSetChanged()
         }
     }
-
 }

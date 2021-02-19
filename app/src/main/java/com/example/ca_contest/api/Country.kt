@@ -4,6 +4,7 @@ import android.widget.DatePicker
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
+// Model for The API
 data class Country(
     @Expose
     @SerializedName("name")

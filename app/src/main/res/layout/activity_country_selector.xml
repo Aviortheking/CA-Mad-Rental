@@ -8,33 +8,39 @@
 
     <EditText
         android:id="@+id/text"
-        android:layout_width="325dp"
-        android:layout_height="40dp"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
         android:background="#eee"
         android:hint="Nom du pays"
+        android:paddingLeft="16px"
         android:inputType="textCapSentences"
         android:maxLines="1"
         android:textColor="@android:color/black"
+        app:layout_constraintEnd_toStartOf="@+id/validate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/validate"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_width="70dp"
+        android:layout_height="0dp"
         android:background="#eee"
         android:text="OK"
         android:textColor="@android:color/white"
+        app:backgroundTint="@color/button"
+        app:layout_constraintBottom_toTopOf="@+id/list"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,5 @@
 package com.example.ca_contest.adapters
 
-import android.content.Intent
-import android.util.Log
 import com.example.ca_contest.R
 import android.view.LayoutInflater
 import android.view.View
@@ -10,14 +8,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ca_contest.CalendarActivity
-import com.example.ca_contest.api.Country
+import com.example.ca_contest.dao.Country
 import com.squareup.picasso.Picasso
 
-// Adapter for the CountrySelector
-class CountryAdapter(list: ArrayList<Country>) : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
+// Adapter for the homepage
+class HomepageCountryAdapter(list: List<Country>) : RecyclerView.Adapter<HomepageCountryAdapter.CountryViewHolder>() {
 
-    private var list: ArrayList<Country> = ArrayList()
+    private var list: List<Country> = ArrayList()
 
     init {
         this.list = list
@@ -26,17 +23,18 @@ class CountryAdapter(list: ArrayList<Country>) : RecyclerView.Adapter<CountryAda
     // Create the view Holder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
         val viewMemo: View =
-            LayoutInflater.from(parent.context).inflate(R.layout.country_selector_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
         return CountryViewHolder(viewMemo)
     }
 
     // Bind each items
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
-        holder.name?.text = list[position].name
-        holder.capital?.text = "Capital : " + list[position].capital
-        holder.region?.text = "Continent : " + list[position].region
+        holder.name?.text = list[position].country
+        holder.capital?.text = "Capital : " + list[position].capitalCity
+        holder.date?.text = list[position].date.toString()
+        holder.region?.text = "Continent : " + list[position].continent
         Picasso.get()
-                .load("http://www.geognos.com/api/en/countries/flag/" + list[position].alpha2Code + ".png")
+                .load("http://www.geognos.com/api/en/countries/flag/" + list[position].code + ".png")
                 .into(holder.image!!)
     }
 
@@ -53,24 +51,15 @@ class CountryAdapter(list: ArrayList<Country>) : RecyclerView.Adapter<CountryAda
         var name: TextView? = null
         var capital: TextView? = null
         var region: TextView? = null
+        var date: TextView? = null
         var image: ImageView? = null
 
         init {
-            name = itemView.findViewById(R.id.name)
+            name = itemView.findViewById(R.id.country)
+            date = itemView.findViewById(R.id.date)
             capital = itemView.findViewById(R.id.capital)
-            region = itemView.findViewById(R.id.region)
+            region = itemView.findViewById(R.id.continent)
             image = itemView.findViewById(R.id.image)
-
-            itemView.setOnClickListener {
-                val context = itemView.context
-
-                // Intent to Calendar
-                context.startActivity(Intent(context, CalendarActivity::class.java)
-                    .putExtra("name", list[adapterPosition].name)
-                    .putExtra("capital", list[adapterPosition].capital)
-                    .putExtra("region", list[adapterPosition].region)
-                )
-            }
         }
     }
 
