@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
+// Database Manager
 @Database(entities = [Country::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase()
