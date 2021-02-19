@@ -1,5 +1,6 @@
 package com.example.ca_contest.api
 
+import android.widget.DatePicker
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
@@ -17,5 +18,7 @@ data class Country(
     val region: String,
     @Expose
     @SerializedName("alpha2Code")
-    val alpha2Code: String
+    val alpha2Code: String,
+
+    val date: DatePicker
 ) {}
