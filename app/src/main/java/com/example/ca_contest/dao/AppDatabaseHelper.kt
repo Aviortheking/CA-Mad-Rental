@@ -3,6 +3,7 @@ package com.example.ca_contest.dao
 import android.content.Context
 import androidx.room.Room
 
+// Helper for the Database System
 class AppDatabaseHelper(context: Context)
 {
     // Bloc de code "static" :

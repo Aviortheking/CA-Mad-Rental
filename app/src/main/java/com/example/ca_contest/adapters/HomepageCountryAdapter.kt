@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ca_contest.dao.Country
 import com.squareup.picasso.Picasso
 
+// Adapter for the homepage
 class HomepageCountryAdapter(list: List<Country>) : RecyclerView.Adapter<HomepageCountryAdapter.CountryViewHolder>() {
 
     private var list: List<Country> = ArrayList()

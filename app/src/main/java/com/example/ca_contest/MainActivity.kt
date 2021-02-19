@@ -12,20 +12,20 @@ import com.example.ca_contest.dao.AppDatabaseHelper
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var countryAdapter: HomepageCountryAdapter
-    //    private lateinit var imageView: ImageView
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
 
+        // Initialize RecyclerView
         val recycler = findViewById<RecyclerView>(R.id.list_country)
         recycler.setHasFixedSize(true)
 
         val layoutManager = LinearLayoutManager(this)
         recycler.layoutManager = layoutManager
 
+        // Fetch Items in Database
         val adapter = HomepageCountryAdapter(
             AppDatabaseHelper
                 .getDatabase(this)

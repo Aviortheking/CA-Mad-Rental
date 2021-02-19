@@ -23,8 +23,11 @@ import retrofit2.Callback
 import retrofit2.Response
 import kotlin.collections.ArrayList
 
-
 class CountrySelectorActivity : AppCompatActivity() {
+
+    companion object {
+        const val PROGRESS_BAR_TITLE = "Récupération des pays..."
+    }
 
     private var data: ArrayList<Country> = ArrayList()
 
@@ -35,7 +38,7 @@ class CountrySelectorActivity : AppCompatActivity() {
 
         // Progress Bar
         val progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("Récupération des pays...")
+        progressDialog.setTitle(PROGRESS_BAR_TITLE)
         progressDialog.setCancelable(false)
         progressDialog.show()
 

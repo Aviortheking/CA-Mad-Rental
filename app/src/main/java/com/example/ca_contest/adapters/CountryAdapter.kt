@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ca_contest.api.Country
 import com.squareup.picasso.Picasso
 
+// Adapter for the CountrySelector
 class CountryAdapter(list: ArrayList<Country>) : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
 
     private var list: ArrayList<Country> = ArrayList()
