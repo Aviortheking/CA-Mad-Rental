@@ -12,17 +12,13 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.CA_Contest">
         <activity
-            android:name=".CountrySelectorActivity"
-            android:label="@string/title_activity_country_selector"
-            android:theme="@style/Theme.CA_Contest.NoActionBar"></activity>
+            android:name=".CountrySelectorActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".MainActivity">
         </activity>
     </application>
 

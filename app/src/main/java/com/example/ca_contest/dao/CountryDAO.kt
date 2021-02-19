@@ -1,7 +1,6 @@
 package com.example.ca_contest.dao
 
 import androidx.room.*
-import com.example.ca_contest.Country
 
 @Dao
 abstract class CountryDAO {
