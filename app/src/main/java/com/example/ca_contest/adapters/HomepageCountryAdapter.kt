@@ -46,7 +46,7 @@ class HomepageCountryAdapter(list: List<Country>) : RecyclerView.Adapter<Homepag
             val newList = ArrayList(list)
             newList.removeAt(position)
             list = newList
-            this.notifyItemRemoved(position)
+            this.notifyDataSetChanged()
         }
     }
 
