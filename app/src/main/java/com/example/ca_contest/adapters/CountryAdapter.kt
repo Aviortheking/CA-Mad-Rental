@@ -1,5 +1,7 @@
 package com.example.ca_contest.adapters
 
+import android.content.Intent
+import android.util.Log
 import com.example.ca_contest.R
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ca_contest.CalendarActivity
 import com.example.ca_contest.api.Country
 import com.squareup.picasso.Picasso
 
@@ -62,9 +65,11 @@ class CountryAdapter(list: ArrayList<Country>) : RecyclerView.Adapter<CountryAda
                 val context = itemView.context
 
                 // Intent to Calendar
-                Toast.makeText(
-                    context, name?.text, Toast.LENGTH_LONG
-                ).show()
+                context.startActivity(Intent(context, CalendarActivity::class.java)
+                    .putExtra("name", list[adapterPosition].name)
+                    .putExtra("capital", list[adapterPosition].capital)
+                    .putExtra("region", list[adapterPosition].region)
+                )
             }
         }
     }
