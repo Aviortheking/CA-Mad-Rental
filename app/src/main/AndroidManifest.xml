@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ca_contest">
+    package="com.example.ca_kotlin">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
@@ -9,16 +9,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CA_Contest"
+        android:theme="@style/Theme.CA_Kotlin"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CalendarActivity"
-            android:theme="@style/Theme.CA_Contest.NoActionBar"
-            />
         <activity
-            android:name=".CountrySelectorActivity"
+            android:name="com.example.ca_kotlin.DetailsActivity"
             android:label="@string/title_activity_country_selector"
-            android:theme="@style/Theme.CA_Contest.NoActionBar" />
-        <activity android:name=".MainActivity" android:theme="@style/Theme.CA_Contest.NoActionBar">
+            android:theme="@style/Theme.CA_Kotlin.NoActionBar" />
+        <activity android:name="com.example.ca_kotlin.MainActivity" android:theme="@style/Theme.CA_Kotlin.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

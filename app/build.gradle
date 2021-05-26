@@ -9,7 +9,7 @@ android {
     compileSdkVersion 29
 
     defaultConfig {
-        applicationId "com.example.ca_contest"
+        applicationId "com.example.ca_kotlin"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1

@@ -1,4 +1,4 @@
-package com.example.ca_contest
+package com.example.ca_kotlin
 
 import org.junit.Test
 

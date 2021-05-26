@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "CA_Contest"
+rootProject.name = "CA_Kotlin"

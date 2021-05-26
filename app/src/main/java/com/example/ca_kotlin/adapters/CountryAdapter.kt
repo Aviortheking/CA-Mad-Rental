@@ -1,23 +1,21 @@
-package com.example.ca_contest.adapters
+package com.example.ca_kotlin.adapters
 
 import android.content.Intent
-import android.util.Log
-import com.example.ca_contest.R
+import com.example.ca_kotlin.R
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ca_contest.CalendarActivity
-import com.example.ca_contest.api.Country
+import com.example.ca_kotlin.DetailsActivity
+import com.example.ca_kotlin.api.Vehicles
 import com.squareup.picasso.Picasso
 
 // Adapter for the CountrySelector
-class CountryAdapter(list: ArrayList<Country>) : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
+class CountryAdapter(list: ArrayList<Vehicles>) : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
 
-    private var list: ArrayList<Country> = ArrayList()
+    private var list: ArrayList<Vehicles> = ArrayList()
 
     init {
         this.list = list
@@ -33,15 +31,15 @@ class CountryAdapter(list: ArrayList<Country>) : RecyclerView.Adapter<CountryAda
     // Bind each items
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
         holder.name?.text = list[position].name
-        holder.capital?.text = "Capital : " + list[position].capital
-        holder.region?.text = "Continent : " + list[position].region
+        holder.price?.text = "Capital : " + list[position].price
+        holder.category?.text = "Continent : " + list[position].category
         Picasso.get()
-                .load("http://www.geognos.com/api/en/countries/flag/" + list[position].alpha2Code + ".png")
-                .into(holder.image!!)
+            .load("http://s519716619.onlinehome.fr/exchange/madrental/images/" + list[position].image)
+            .into(holder.image!!)
     }
 
     // Update the list
-    fun update(list: ArrayList<Country>) {
+    fun update(list: ArrayList<Vehicles>) {
         this.list = list
     }
 
@@ -51,25 +49,27 @@ class CountryAdapter(list: ArrayList<Country>) : RecyclerView.Adapter<CountryAda
 
     inner class CountryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var name: TextView? = null
-        var capital: TextView? = null
-        var region: TextView? = null
+        var price: TextView? = null
+        var category: TextView? = null
         var image: ImageView? = null
 
         init {
             name = itemView.findViewById(R.id.name)
-            capital = itemView.findViewById(R.id.capital)
-            region = itemView.findViewById(R.id.region)
+            price = itemView.findViewById(R.id.price)
+            category = itemView.findViewById(R.id.category)
             image = itemView.findViewById(R.id.image)
 
             itemView.setOnClickListener {
                 val context = itemView.context
 
                 // Intent to Calendar
-                context.startActivity(Intent(context, CalendarActivity::class.java)
+                println(list[adapterPosition])
+                context.startActivity(Intent(context, DetailsActivity::class.java)
                     .putExtra("name", list[adapterPosition].name)
-                    .putExtra("capital", list[adapterPosition].capital)
-                    .putExtra("region", list[adapterPosition].region)
-                    .putExtra("code", list[adapterPosition].alpha2Code)
+                    .putExtra("price", list[adapterPosition].price)
+                    .putExtra("category", list[adapterPosition].category)
+                    .putExtra("image", list[adapterPosition].image)
+                    .putExtra("id", list[adapterPosition].vehicleId.toString())
                 )
             }
         }

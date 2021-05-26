@@ -1,4 +1,4 @@
-package com.example.ca_contest.dao
+package com.example.ca_kotlin.dao
 
 import android.content.Context
 import androidx.room.Room

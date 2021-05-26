@@ -1,4 +1,4 @@
-package com.example.ca_contest.api
+package com.example.ca_kotlin.api
 
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 // API Client
 object ApiClient {
 
-    var BASE_URL:String="https://restcountries.eu/"
+    var BASE_URL:String="http://s519716619.onlinehome.fr/"
     val getClient: ApiInterface
         get() {
 
