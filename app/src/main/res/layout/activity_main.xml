@@ -32,9 +32,10 @@
 
         <Switch
             android:id="@+id/switch1"
-            android:layout_width="88dp"
-            android:showText="false"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Favoris"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

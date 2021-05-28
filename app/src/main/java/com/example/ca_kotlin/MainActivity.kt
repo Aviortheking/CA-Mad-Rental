@@ -11,10 +11,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ca_kotlin.adapters.CountryAdapter
+import com.example.ca_kotlin.adapters.VehicleAdapter
 import com.example.ca_kotlin.api.ApiClient
 import com.example.ca_kotlin.api.Vehicles
 import com.example.ca_kotlin.dao.AppDatabaseHelper
+import com.example.ca_kotlin.dao.Vehicle
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         progressDialog.setCancelable(false)
         progressDialog.show()
 
-        val adapter = CountryAdapter(data)
+        val adapter = VehicleAdapter(data)
         recycler.adapter = adapter
 
         val switch = findViewById<Switch>(R.id.switch1)
@@ -62,20 +63,23 @@ class MainActivity : AppCompatActivity() {
         global(adapter, recycler, progressDialog)
     }
 
-    fun favorites(adapter: CountryAdapter, recycler: RecyclerView, progressDialog: ProgressDialog) {
+    private fun favorites(adapter: VehicleAdapter, recycler: RecyclerView, progressDialog: ProgressDialog) {
         val vehicles = AppDatabaseHelper.getDatabase(this)
             .vehicleDAO()
             .getVehicles()
+
+        val filteredData = data.filter { dVehicle -> (vehicles.find { it.vehicleId == dVehicle.vehicleId }) != null }
         data.clear()
-        data.addAll(vehicles as ArrayList<Vehicles>)
-        println(vehicles)
+        data.addAll(filteredData)
+        println(filteredData)
+        adapter.update(data.clone() as ArrayList<Vehicles>)
         adapter.notifyDataSetChanged()
     }
 
-    fun global(adapter: CountryAdapter, recycler: RecyclerView, progressDialog: ProgressDialog) {
+    private fun global(adapter: VehicleAdapter, recycler: RecyclerView, progressDialog: ProgressDialog) {
         ApiClient.getClient.getVehicles().enqueue(object : Callback<List<Vehicles>> {
             override fun onResponse(call: Call<List<Vehicles>>?, response: Response<List<Vehicles>>?) {
-
+                data.clear()
                 data.addAll(response!!.body()!!)
                 adapter.update(data.clone() as ArrayList<Vehicles>)
                 adapter.notifyDataSetChanged()

@@ -13,7 +13,7 @@ import com.example.ca_kotlin.api.Vehicles
 import com.squareup.picasso.Picasso
 
 // Adapter for the CountrySelector
-class CountryAdapter(list: ArrayList<Vehicles>) : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
+class VehicleAdapter(list: ArrayList<Vehicles>) : RecyclerView.Adapter<VehicleAdapter.CountryViewHolder>() {
 
     private var list: ArrayList<Vehicles> = ArrayList()
 

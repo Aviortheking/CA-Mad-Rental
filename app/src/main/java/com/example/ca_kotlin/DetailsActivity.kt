@@ -30,9 +30,6 @@ class DetailsActivity: AppCompatActivity() {
         button.setOnClickListener {
             val dao = AppDatabaseHelper.getDatabase(this)
                 .vehicleDAO()
-            val res = dao
-                .find(id.toLong())
-            println(res)
 
             try {
                 dao.insert(Vehicle(
